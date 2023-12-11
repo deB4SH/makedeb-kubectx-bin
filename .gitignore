@@ -1,0 +1,4 @@
+pkg/
+src/
+kubectx_*.tar.gz
+kubectx-bin_*.deb
