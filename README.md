@@ -13,3 +13,7 @@ git clone 'https://github.com/deB4SH/makedeb-kubectx-bin.git'
 cd makedeb-kubectx-bin/
 makedeb -si
 ```
+
+   
+
+   

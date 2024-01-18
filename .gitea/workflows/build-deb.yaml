@@ -1,0 +1,25 @@
+name: build-deb
+run-name: Building deb package for makedeb-kubectx-bin
+on: [push]
+
+
+jobs:
+  compile:
+    name: Build deb package
+    runs-on: ubuntu-latest
+    container: 
+      image: ghcr.io/deb4sh/makedeb-action-build-image:sha-89a14d9
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@main
+      - name: Run makedeb to build package
+        run: |
+          makedeb -s
+          makedeb --print-srcinfo | tee .SRCINFO
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Automated Change
+          commit_user_name: Meep[BOT]
+          commit_user_email: meep-the-bot@noreply.0x09.de
+          commit_author: Meep <meep-the-bot@noreply.0x09.de>
+          status_options: '--untracked-files=no'
